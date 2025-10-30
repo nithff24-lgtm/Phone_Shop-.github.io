@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Shop📲</title>
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+            font-family: Cataneo BT, sans-serif;
+            font-size: 18px;
+            color: rgb(0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        fieldset{
+            border: 2px solid rgb(0, 0, 0);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            background-color: rgb(240, 240, 240);
+        }
+        legend{
+            font-size: 25px;
+            font-family: Cataneo BT, sans-serif;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            border-radius: 10px;
+        }
+        .name {
+            margin-bottom: 8px;
+            font-size: 20px;
+            font-family: Cataneo BT, sans-serif;
+        }
+        .name input {
+            width: 250px;
+            height: 35px;
+            border-radius: 8px ;
+            margin-bottom: 8px;
+            font-size: 18px;
+            padding-left: 8px;
+        }
+        .name1 {
+            width: 250px;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .name1 input {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .name1 button{
+            display: block;
+            margin: 5px auto;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: rgb(255, 0, 0);
+            width: 100px;
+            height: 35px;
+            color: white;
+            font-family: Cataneo BT, sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .name1 button:hover{
+            background-color: rgb(200, 0, 0);
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1><u>Contact Me</u></h1>
+    <form id="myForm">
+        <fieldset style="width: 250px; padding: 20px; border-radius: 10px;">
+            <legend>Form</legend>
+            <div class="name">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" placeholder="Name"><br>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" placeholder="Email"><br>
+                <label for="password">Password</label><br>
+                <input type="password" id="password" placeholder="Password"><br>
+            </div>
+            <div class="name1">
+                <input type="checkbox" id="terms"> I agree to the terms<br>
+                <button type="submit"><a href="index1.html">Submit</a></button>
+            </div>
+        </fieldset>
+    </form>
+    <p id="message"></p>
+
+    <p style="font-size: 20px;">Copyright <a href="">mysites.</a></p>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // បង្ហាញសារជំនួសការបញ្ជូនទៅទំព័រផ្សេង
+            
+            // ទទួលតម្លៃពី input
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const terms = document.getElementById("terms").checked;
+            const message = document.getElementById("message");
+
+            // ត្រួតពិនិត្យតម្លៃ
+            if (name === "" || email === "" || password === "") {
+                message.textContent = "⚠️ Please fill in all fields.";
+                message.className = "error";
+                return;
+            }
+
+            if (!terms) {
+                message.textContent = "⚠️ Please agree to the terms.";
+                message.className = "error";
+                return;
+            }
+
+            // បង្ហាញសារបញ្ជាក់
+            message.textContent = "✅ Form Submitted Successfully!";
+            message.className = "success";
+
+            // បន្ទាប់ពីបញ្ជូនអាចផ្ញើទៅទំព័រផ្សេង
+            // window.location.href = "index1.html"; // ប្រសិនបើចង់ទៅទំព័រផ្សេង
+        });
+    </script>
+</body>
+</html>
